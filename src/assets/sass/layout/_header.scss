@@ -1,0 +1,44 @@
+.header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .3rem .2rem;
+    
+    & img{
+        width: 12.5rem;
+        height: 3.75rem;
+    }
+
+    & nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        
+        & ul{
+            display: flex;
+            align-items: center;
+
+            & li{
+                margin-left: 1rem;
+            }
+        }
+       
+    }
+
+    &__link{
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #2c3e50;
+        &:hover{
+            text-decoration: underline;
+        }
+
+        &__icon{
+            margin-right: .2rem;
+        }
+        
+    }
+}

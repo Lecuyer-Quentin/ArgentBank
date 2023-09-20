@@ -1,0 +1,53 @@
+.editForm{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    width: 20rem;
+    // border: 1px solid #00bc77;
+    margin: 0 auto;
+
+    h2{
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-align: center;
+    }
+
+    &__user{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        margin: .6rem 0;
+        padding: 0 1rem;  
+        
+        label{
+            font-size: 1.2rem;
+            font-weight: 400;
+        }
+
+        input{
+            height: 1.5rem;
+            border: 1px solid #00bc77;
+            border-radius: 3px;
+        }
+    }
+
+    &__btn{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-evenly;
+        
+        button{
+            width: 9rem;
+            height: 2rem;
+            border:none;
+            background-color: #00bc77;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin: 1rem 0;
+        }
+    }
+    
+}
