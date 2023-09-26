@@ -7,9 +7,8 @@ import RequireAuth from "./features/form/RequireAuth"
 import Profile from "./pages/Profile"
 import EditProfile from "./pages/EditProfile"
 import { useEffect } from "react"
-import { setToken, getIsLogged, logout } from "./features/form/loginSlice"
+import { setToken, getIsLogged, logout } from "./app/loginSlice"
 import "./assets/sass/main.scss"
-// import { fetchUserProfile } from "./features/profile/profileSlice"
 
 
 function App() {
