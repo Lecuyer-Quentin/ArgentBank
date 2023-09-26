@@ -1,7 +1,7 @@
 import React,{useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectUser, editMode, fetchUserProfile} from '../profile/profileSlice'
-import { getIsLogged, getToken } from '../form/loginSlice'
+import { selectUser, editMode, fetchUserProfile} from '../../app/profileSlice'
+import { getIsLogged, getToken } from '../../app/loginSlice'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
@@ -11,7 +11,7 @@ const ProfileBanner = () => {
   const dispatchStore = useDispatch()
   const isLogged = useSelector(getIsLogged)
   const token = useSelector(getToken)
-  const { firstName, lastName, userName } = user
+  const { firstName, userName } = user
   const [dataLoaded, setDataLoaded] = useState(false)
 
   useEffect(() => {
@@ -28,19 +28,16 @@ const ProfileBanner = () => {
 
   const renderEditButton = () => {
       return (
-        <button className="profile__editbutton" onClick={handleEditMode}>
-          <i className="fa fa-pencil fa-fw fa-lg"></i>
-          Edit Profile
+        <button className="profile__editButton" onClick={handleEditMode}>
+          Edit Name
         </button>
       )         
   }
-  
  
   const renderBanner = () => {
       return (
         <div className="profile__banner">
-          <h2>Welcome back <br/> {firstName} {lastName} !</h2>
-          <p>{userName}</p>         
+          <h2>Welcome back <br/> {firstName} {userName} !</h2>        
           {renderEditButton()}
         </div>
       )

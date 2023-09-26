@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { editMode, setUserName, editUserProfile, selectUser } from './profileSlice'
-import { getToken } from '../form/loginSlice'
+import { editMode, setUserName, editUserProfile, selectUser } from '../../app/profileSlice'
+import { getToken } from '../../app/loginSlice'
 import { useNavigate } from 'react-router-dom'
 
 const initialState = {

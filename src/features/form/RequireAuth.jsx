@@ -1,14 +1,12 @@
 import React from 'react'
 import { Navigate, Outlet } from 'react-router-dom'
 import { useSelector } from 'react-redux'
-import { getStatus } from '../form/loginSlice'
-// import { getIsLogged } from '../form/loginSlice'
-import { getToken } from '../form/loginSlice'
+import { getStatus } from '../../app/loginSlice'
+import { getToken } from '../../app/loginSlice'
 
 const RequireAuth = () => {
 
   const status = useSelector(getStatus)
-  // const isLogged = useSelector(getIsLogged)
   const token = useSelector(getToken)
 
 

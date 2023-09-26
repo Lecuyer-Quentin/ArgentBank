@@ -1,14 +1,14 @@
 import React, { useEffect, useReducer, useRef } from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { login, setToken } from './loginSlice'
+import { login, setToken } from '../../app/loginSlice'
 
 
 const initialState = {
     email: '',
     password: '',
     saveUser: false,
-    error: null
+    error: null,
 }
 
 const reducer = (state, action) => {
@@ -20,7 +20,7 @@ const reducer = (state, action) => {
         case 'saveUser':
             return { ...state, saveUser: action.payload }
         case 'error':
-            return { ...state, error: action.payload }
+            return { ...state, error: action.payload }        
         default:
             throw new Error()
     }
@@ -30,7 +30,7 @@ const ACTIONS = {
     EMAIL: 'email',
     PASSWORD: 'password',
     SAVE_USER: 'saveUser',
-    ERROR: 'error'
+    ERROR: 'error',
 }
 
 const LoginForm = () => {
@@ -45,14 +45,11 @@ const LoginForm = () => {
     useEffect(() => {
         userRef.current.focus()
     }, [])
-    /////////////////////////////////////////
 
     //* Reset error message on email or password change
     useEffect(() => {
         dispatch({ type: ACTIONS.ERROR, payload: null })
     }, [state.email, state.password])
-    /////////////////////////////////////////
-
 
     //* Handle input changes
     const handleEmailChange = (e) => {
@@ -67,6 +64,7 @@ const LoginForm = () => {
         dispatch({ type: ACTIONS.SAVE_USER, payload: e.target.checked })
     }
 
+    //* Handle Submit
     const handleFormSubmit = async (e) => {
         e.preventDefault()
         if (canSubmit) {
@@ -98,8 +96,6 @@ const LoginForm = () => {
             }
         }
     }
-    /////////////////////////////////////////
-    
 
     //* Render functions
     const renderError = () => {
@@ -150,12 +146,11 @@ const LoginForm = () => {
                 disabled={!canSubmit}>
                 Login
             </button>
-            </form>
+        </form>
         )
     }
-    /////////////////////////////////////////
-    
 
+ 
     return (
         <section>
             {renderLoginForm()}
