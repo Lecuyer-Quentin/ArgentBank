@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { dataContext } from '../../features/data/DataContext'
+import { dataContext } from '../../app/data/DataContext'
 import AccountItem from '../AccountItem'
 
 const AccountDetails = () => {

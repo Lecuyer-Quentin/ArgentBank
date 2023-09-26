@@ -1,8 +1,8 @@
 import React  from 'react'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { getIsLogged, logout } from '../../features/form/loginSlice'
-import { selectUser, selectEditMode } from '../../features/profile/profileSlice'
+import { getIsLogged, logout } from '../../app/loginSlice'
+import { selectUser, selectEditMode } from '../../app/profileSlice'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleUser } from '@fortawesome/free-solid-svg-icons'
 import { faGear } from '@fortawesome/free-solid-svg-icons'
@@ -18,7 +18,7 @@ const Header = () => {
     const isLogged = useSelector(getIsLogged)
     const editMode = useSelector(selectEditMode)
     const user = useSelector(selectUser)
-    const { firstName } = user
+    const { firstName, userName } = user
 
 
     const handleLogOut = () => {
@@ -34,7 +34,7 @@ const Header = () => {
                             <li>
                                 <Link to='/profile' className='header__link'>
                                     <FontAwesomeIcon icon={faCircleUser} className='header__link__icon'/>
-                                    {firstName}
+                                    {userName ? userName : firstName}
                                 </Link>
                             </li>
 
@@ -50,7 +50,7 @@ const Header = () => {
                             <li>
                                 <Link to='/logout' className='header__link' onClick={handleLogOut}>
                                     <FontAwesomeIcon icon={faRightFromBracket} className='header__link__icon' />
-                                    Log out
+                                    {/* Log out */}
                                 </Link>
                             </li>
                         </>

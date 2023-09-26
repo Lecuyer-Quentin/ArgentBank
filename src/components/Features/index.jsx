@@ -1,7 +1,7 @@
 
 import React, { useContext } from 'react';
 import FeaturesItem from '../FeaturesItem';
-import { dataContext } from '../../features/data/DataContext';
+import { dataContext } from '../../app/data/DataContext';
 
 
 

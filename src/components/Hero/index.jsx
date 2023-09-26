@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { dataContext } from '../../features/data/DataContext';
+import { dataContext } from '../../app/data/DataContext';
 
 export default function Hero() {
     const { heroData } = useContext(dataContext);
