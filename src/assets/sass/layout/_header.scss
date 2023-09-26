@@ -1,4 +1,5 @@
 .header{
+    height: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -6,7 +7,7 @@
     
     & img{
         width: 12.5rem;
-        height: 3.75rem;
+        height: 3.5rem;
     }
 
     & nav {
@@ -19,19 +20,24 @@
             align-items: center;
 
             & li{
-                margin-left: 1rem;
+                position: relative;
+
+                & a{
+                    padding: .5rem;
+                    transition: all .2s ease-in-out;
+                }
             }
         }
-       
     }
 
     &__link{
         cursor: pointer;
         display: flex;
         align-items: center;
-        font-size: 1.2rem;
-        font-weight: bold;
+        font-size: 1.1rem;
+        font-weight: 500;
         color: #2c3e50;
+        
         &:hover{
             text-decoration: underline;
         }

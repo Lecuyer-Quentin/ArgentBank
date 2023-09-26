@@ -1,12 +1,12 @@
 .features{
     display : flex;
-    flex-direction : column
-}
-.features__item{
+    flex-direction : column;
+
+    &__item{
     display : flex;
     flex-direction : column;
     align-items : center;
-    justify-content: center;
+    justify-content: space-between;
     text-align: center;
     padding: 2.5rem;
 
@@ -22,5 +22,5 @@
         margin-bottom : .5rem;
     }
 
-
+    }
 }

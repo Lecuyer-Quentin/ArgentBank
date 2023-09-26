@@ -29,11 +29,11 @@
             text-align: left;
             margin-bottom: 1rem;
 
-            > label{
+            label{
                 font-size: 1.1rem;
                 font-weight: bold;
             }
-            > input{
+            input{
                 padding: .6rem;
                 border: 1px solid #00bc77;
                 font-size: 1rem;
@@ -43,14 +43,15 @@
                 flex-direction: row-reverse;
                 align-items: center;
                 justify-content: flex-end;
-                margin-right: 8.5rem;
+                margin-right: 5.5rem;
                 
-                > label{
+                label{
                     margin-bottom: 0;
                     margin-left: .25rem;
                     font-weight: 400;
                 }
             }
+            
         }
         button{
             display:block;
@@ -62,6 +63,17 @@
             color: #ffffff;
             cursor: pointer;
             text-decoration: underline;
+        }
+
+        p{
+            font-size: .6rem;
+            margin-top: .5rem;
+            text-align: center;
+ 
+            span{
+                font-weight: 700;
+                cursor: pointer;
+            }
         }
     }
 }

@@ -1,0 +1,54 @@
+@media (min-width: 920px){
+
+    .hero{
+        height: 25rem;
+        width: 100%;
+        // position: relative;
+        &__content{
+            width: 250px;
+            height: 150px;
+            transform: translate(50%, -50%);
+            p{
+                font-size: 24px;
+            }
+            span{
+                font-size: 16px;
+            }
+            
+        }
+    }
+
+    .features{
+        flex-direction: row;
+
+        &__item{
+            width: 33.33%;
+            height: 22rem;
+        }
+    }
+
+    .account{
+        &__details{
+            &__title{
+                top: 7%;
+            }    
+            &__number{
+                bottom: 28%;
+            }  
+            &__subText{
+                bottom: 62%;
+            }        
+                
+                
+                     
+            &__button{
+                position: absolute;
+                width: 200px;
+                bottom: 38%;
+                right: 2%;
+
+                
+            }
+        }
+    }
+}
