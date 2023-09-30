@@ -2,7 +2,6 @@ import React, { useReducer } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { editMode, setUserName, editUserProfile, selectUser } from '../../app/profileSlice'
 import { getToken } from '../../app/loginSlice'
-import { useNavigate } from 'react-router-dom'
 
 const initialState = {
     newUserName: ''
@@ -24,7 +23,6 @@ const ACTIONS = {
 
 const EditForm = () => {
 
-    const navigate = useNavigate()
     const dispatchStore = useDispatch()
     const token = useSelector(getToken)
     const [state, dispatch] = useReducer(reducer, initialState )
@@ -44,8 +42,7 @@ const EditForm = () => {
             try {
                 dispatchStore(setUserName(state.newUserName))
                 dispatchStore(editUserProfile(token))
-                dispatchStore(editMode(false))
-                navigate('/profile')
+                dispatchStore(editMode())
             } catch (error) {
                 console.log(error)
             }
@@ -53,9 +50,8 @@ const EditForm = () => {
     }
 
     const handleCancel = () => {
-        dispatchStore(editMode(false))
+        dispatchStore(editMode())
         dispatch({ type: ACTIONS.USERNAME, payload: '' })
-        navigate('/profile')
     }
 
     // Render edit form

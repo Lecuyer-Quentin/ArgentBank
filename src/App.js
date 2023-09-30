@@ -5,7 +5,6 @@ import Home from "./pages/Home"
 import Login from "./pages/Login"
 import RequireAuth from "./features/form/RequireAuth"
 import Profile from "./pages/Profile"
-import EditProfile from "./pages/EditProfile"
 import { useEffect } from "react"
 import { setToken, getIsLogged, logout } from "./app/loginSlice"
 import "./assets/sass/main.scss"
@@ -41,7 +40,6 @@ function App() {
         {/* Private Routes */}
         <Route element={<RequireAuth />}>
           <Route path="profile" element={<Profile />} />
-          <Route path="edit" element={<EditProfile />} />
         </Route>
 
         <Route path="*" element={<Navigate to="/" />} />

@@ -16,7 +16,7 @@ const Header = () => {
 
     const dispatchStore = useDispatch()
     const isLogged = useSelector(getIsLogged)
-    const editMode = useSelector(selectEditMode)
+    const isEditMode = useSelector(selectEditMode)
     const user = useSelector(selectUser)
     const { firstName, userName } = user
 
@@ -38,9 +38,9 @@ const Header = () => {
                                 </Link>
                             </li>
 
-                            {editMode && (
+                            {isEditMode && (
                                 <li>
-                                    <Link to='/edit' className='header__link'>
+                                    <Link to='/profile' className='header__link'>
                                         <FontAwesomeIcon icon={faGear} className='header__link__icon' />
                                     </Link>
                                 </li>

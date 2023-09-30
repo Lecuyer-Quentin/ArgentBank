@@ -1,16 +1,18 @@
 import React,{useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { selectUser, editMode, fetchUserProfile} from '../../app/profileSlice'
+import { selectUser,selectEditMode, editMode, fetchUserProfile} from '../../app/profileSlice'
 import { getIsLogged, getToken } from '../../app/loginSlice'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+import EditForm from './EditForm'
 
 const ProfileBanner = () => {
-  const navigate = useNavigate()
+  // const navigate = useNavigate()
   const user = useSelector(selectUser)
   const dispatchStore = useDispatch()
   const isLogged = useSelector(getIsLogged)
   const token = useSelector(getToken)
+  const isEditMode = useSelector(selectEditMode)
   const { firstName, userName } = user
   const [dataLoaded, setDataLoaded] = useState(false)
 
@@ -22,7 +24,6 @@ const ProfileBanner = () => {
   }, [dispatchStore, token, dataLoaded])
 
   const handleEditMode = () => {
-    navigate('/edit')
     dispatchStore(editMode())
   }
 
@@ -45,7 +46,8 @@ const ProfileBanner = () => {
         
   return (
     <>
-      {isLogged && renderBanner()}
+      {isLogged && !isEditMode && renderBanner()}
+      {isLogged && isEditMode && <EditForm />}      
     </>
   )
 }
