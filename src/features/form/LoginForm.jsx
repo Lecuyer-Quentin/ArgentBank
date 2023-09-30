@@ -33,6 +33,11 @@ const ACTIONS = {
     ERROR: 'error',
 }
 
+/**
+ * LoginForm component that handles user login form submission.
+ * @returns {JSX.Element} Login form JSX element.
+ */
+
 const LoginForm = () => {
     const userRef = useRef()
     const errRef = useRef()

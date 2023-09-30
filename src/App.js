@@ -10,6 +10,10 @@ import { setToken, getIsLogged, logout } from "./app/loginSlice"
 import "./assets/sass/main.scss"
 
 
+/**
+ * The main component of the Argent Bank website.
+ * @returns {JSX.Element} The JSX code for the App component.
+ */
 function App() {
   const dispatch = useDispatch()
   const isLogged = useSelector(getIsLogged)

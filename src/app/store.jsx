@@ -5,15 +5,20 @@ import loginReducers from "./loginSlice";
 import profileReducers from "./profileSlice";
 
 
+/**
+ * This module exports a Redux store created with the configureStore function from the Redux Toolkit.
+ * The store is configured with the reducers for user login and user profile.
+ *
+ * @module store
+ */
 export const store = configureStore({
     // Reducers
     reducer: {
-        // Pour la connexion d'un utilisateur
+        // For user login
         login: loginReducers,
-        // Pour le profil d'un utilisateur connecté
+        // For user profile
         profile: profileReducers,
-       
-    },    
+    },
 });
 
 

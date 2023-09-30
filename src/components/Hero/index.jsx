@@ -1,6 +1,10 @@
 import React, { useContext } from 'react';
 import { dataContext } from '../../app/data/DataContext';
 
+/**
+ * Renders the Hero component.
+ * @returns {JSX.Element} The Hero component.
+ */
 export default function Hero() {
     const { heroData } = useContext(dataContext);
     const { img, title, text1, text2, text3, subText } = heroData;
@@ -14,7 +18,7 @@ export default function Hero() {
                 <p>{text3}</p>
                 <span>{subText}</span>
             </div >
-            </section>
+        </section>
     );
 }
 

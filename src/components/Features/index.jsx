@@ -6,6 +6,11 @@ import { dataContext } from '../../app/data/DataContext';
 
 
 
+/**
+ * Renders a section with a list of features.
+ * @function
+ * @returns {JSX.Element} - Rendered component.
+ */
 function Features() {
     const { featuresData } = useContext(dataContext);
     return (

@@ -2,12 +2,15 @@ import React,{useEffect} from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { selectUser,selectEditMode, editMode, fetchUserProfile} from '../../app/profileSlice'
 import { getIsLogged, getToken } from '../../app/loginSlice'
-// import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 import EditForm from './EditForm'
 
+/**
+ * Renders the profile banner component.
+ * @returns {JSX.Element} The profile banner component.
+ */
+
 const ProfileBanner = () => {
-  // const navigate = useNavigate()
   const user = useSelector(selectUser)
   const dispatchStore = useDispatch()
   const isLogged = useSelector(getIsLogged)

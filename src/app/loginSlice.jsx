@@ -2,17 +2,6 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 const USER_LOGIN_URL = 'http://localhost:3001/api/v1/user/login'  
-// const USER_SIGNUP_URL = 'http://localhost:3001/api/v1/user/signup'
-
-
-const initialState = {
-    user: {},
-    token: localStorage.getItem('token'),
-    status: 'idle',// 'idle' | 'loading' | 'succeeded' | 'failed'
-    error: null,
-    isLogged: false,
-
-}
 
 
 // Thunk pour la connexion
@@ -32,15 +21,39 @@ export const login = createAsyncThunk(
 )
 
 
+/**
+ * Redux slice for managing login state
+ * @typedef {Object} LoginState
+ * @property {string|null} token - The user's authentication token
+ * @property {boolean} isLogged - Whether the user is logged in or not
+ * @property {string} status - The status of the login request (loading, succeeded, failed)
+ * @property {string|null} error - The error message if the login request fails
+ */
+
+const initialState = {
+    token: localStorage.getItem('token') || null,
+    isLogged: false,
+    status: 'idle',
+    error: null
+}
+
 const loginSlice = createSlice({
     name: 'login',
     initialState,
     reducers: {
+        /**
+         * Logs the user out by removing the token from local storage and setting isLogged to false
+         * @param {LoginState} state - The current login state
+         */
         logout: (state) => {
-            // state.token = null
             localStorage.removeItem('token')
             state.isLogged = false
         },
+        /**
+         * Sets the user's authentication token in local storage and sets isLogged to true
+         * @param {LoginState} state - The current login state
+         * @param {PayloadAction<string>} action - The action containing the token payload
+         */
         setToken: (state, action) => {
             localStorage.setItem('token', action.payload)
             state.token = action.payload
@@ -49,14 +62,28 @@ const loginSlice = createSlice({
     },
     extraReducers(builder) {
         builder
+            /**
+             * Sets the login status to 'loading' when the login request is pending
+             * @param {LoginState} state - The current login state
+             */
             .addCase(login.pending, (state) => {
                 state.status = 'loading'
             })
+            /**
+             * Sets the login status to 'succeeded' and sets the user's token when the login request is fulfilled
+             * @param {LoginState} state - The current login state
+             * @param {PayloadAction<{token: string}>} action - The action containing the token payload
+             */
             .addCase(login.fulfilled, (state, action) => {
                 state.status = 'succeeded'
                 state.token = action.payload.token
                 state.isLogged = true
             })
+            /**
+             * Sets the login status to 'failed' and sets the error message when the login request is rejected
+             * @param {LoginState} state - The current login state
+             * @param {PayloadAction<Error>} action - The action containing the error payload
+             */
             .addCase(login.rejected, (state, action) => {
                 state.status = 'failed'
                 state.error = action.error.message

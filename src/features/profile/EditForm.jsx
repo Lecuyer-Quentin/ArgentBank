@@ -21,6 +21,11 @@ const ACTIONS = {
 }
 
 
+/**
+ * EditForm component for editing user info.
+ * @return {JSX.Element} Edit form JSX element.
+ */
+
 const EditForm = () => {
 
     const dispatchStore = useDispatch()

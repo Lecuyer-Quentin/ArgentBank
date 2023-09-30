@@ -12,6 +12,11 @@ import { faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 const logo = require('../../assets/images/argentBankLogo.jpg')
 
 
+/**
+ * Header component that displays the Argent Bank logo and navigation links.
+ * @returns {JSX.Element} Header component with logo and navigation links.
+ */
+
 const Header = () => {
 
     const dispatchStore = useDispatch()

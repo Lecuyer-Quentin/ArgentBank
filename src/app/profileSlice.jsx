@@ -3,17 +3,6 @@ import axios from 'axios';
 
 const USER_PROFILE_URL = 'http://localhost:3001/api/v1/user/profile'
 
-const initialState = {
-    user: {
-        firstName: '',
-        lastName: '',
-        userName: '',
-    },
-    status: 'idle',// 'idle' | 'loading' | 'succeeded' | 'failed'
-    error: null, // string
-    editMode: false,
-}
-
 
 // Thunk pour récupérer le profil de l'utilisateur
 export const fetchUserProfile = createAsyncThunk(
@@ -58,13 +47,54 @@ export const editUserProfile = createAsyncThunk(
 
 
 // Slice pour le profil de l'utilisateur
+/**
+ * This module defines a Redux slice for the user profile.
+ * @module profileSlice
+ */
+/**
+ * The initial state of the user profile.
+ * @typedef {Object} initialState
+ * @property {Object} user - The user profile.
+ * @property {string} status - The status of the user profile.
+ * @property {string} error - The error message, if any.
+ * @property {boolean} editMode - The edit mode of the user profile.
+ */
+
+const initialState = {
+    user: {},
+    status: 'idle',
+    error: null,
+    editMode: false
+}
+
+/**
+ * Redux slice for managing the user profile.
+ * @typedef {Object} profileSlice
+ * @property {initialState} initialState - The initial state of the user profile.
+ * @property {function} reducers - The reducers for the user profile.
+ * @property {function} extraReducers - The extra reducers for the user profile.
+ */
 const profileSlice = createSlice({
     name: 'profile',
     initialState,
     reducers: {
+        /**
+         * Toggles the edit mode of the user profile.
+         * @function
+         * @name editMode
+         * @param {initialState} state - The current state.
+         */
         editMode: (state) => {
             state.editMode = !state.editMode
         },
+        /**
+         * Sets the user name of the user profile.
+         * @function
+         * @name setUserName
+         * @param {initialState} state - The current state.
+         * @param {Object} action - The action object.
+         * @param {string} action.payload - The user name.
+         */
         setUserName: (state, action) => {
             state.user.userName = action.payload
         }
